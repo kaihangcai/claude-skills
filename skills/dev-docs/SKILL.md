@@ -1,7 +1,7 @@
 ---
 name: dev-docs
 description: Use this skill immediately after the user accepts a plan and exits plan mode. Creates local task documentation — writes plan.md, decisions.md, and checklist.md under .claude/dev-docs/active/<task-id>/. Invoke when user says "accepted", "go ahead", "let's do it" after reviewing a plan, or when explicitly running /dev-docs-general.
-allowed-tools: Read(CLAUDE.local.md), Write(.claude/dev-docs/**), Bash(ls)
+allowed-tools: Read(CLAUDE.local.md), Write(.claude/dev-docs/**), Bash(ls, date)
 ---
 
 # dev-docs — Initialise Local Task Documentation
@@ -65,7 +65,18 @@ For a **full re-plan** on an existing directory:
 
 Do **not** move the task to a different status folder during a re-plan.
 
-### 3. Write `plan.md`
+### 3. Get the current timestamp
+
+Before writing any file, run the following Bash command to get the real current time:
+
+```bash
+date "+%Y-%m-%d %H:%M"
+```
+
+Use the output of this command wherever `<YYYY-MM-DD HH:MM>` appears in the templates
+below. **Never guess or hardcode a timestamp.**
+
+### 4. Write `plan.md`
 
 ```markdown
 # Plan — <task-id>
@@ -83,7 +94,7 @@ Do **not** move the task to a different status folder during a re-plan.
 <full plan text verbatim, exactly as accepted>
 ```
 
-### 4. Write `decisions.md`
+### 5. Write `decisions.md`
 
 ```markdown
 # Key Files & Decisions — <task-id>
@@ -108,7 +119,7 @@ List every source file identified in the plan as likely to be created or modifie
 *(Updated during execution — record any mid-task pivots here)*
 ```
 
-### 5. Write `checklist.md`
+### 6. Write `checklist.md`
 
 Extract every distinct action item from the accepted plan as checkboxes, grouped under the
 same headings used in the plan.
@@ -129,7 +140,7 @@ same headings used in the plan.
 - [ ] <action item>
 ```
 
-### 6. Confirm
+### 7. Confirm
 
 ```
 ✅ Dev docs created at .claude/dev-docs/active/<task-id>/

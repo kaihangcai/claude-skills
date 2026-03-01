@@ -1,7 +1,7 @@
 ---
 name: update-dev-docs
 description: Use this skill after completing a meaningful chunk of work on a tracked dev-docs task. Syncs checklist progress, records new decisions or key file discoveries, bumps the Last Updated timestamp, and proposes status transitions with user permission. Invoke when the user says "update the docs", "mark that done", "sync dev docs", or after finishing a phase of work.
-allowed-tools: Read(.claude/dev-docs/**), Write(.claude/dev-docs/**), Edit(.claude/dev-docs/**/checklist.md, .claude/dev-docs/**/decisions.md), Bash(mv)
+allowed-tools: Read(.claude/dev-docs/**), Write(.claude/dev-docs/**), Edit(.claude/dev-docs/**/checklist.md, .claude/dev-docs/**/decisions.md), Bash(mv, date)
 ---
 
 # update-dev-docs — Sync Local Task Documentation
@@ -49,6 +49,14 @@ Note the current status from whichever folder the task is found in.
 If not found in any folder, stop and suggest running the `dev-docs` skill first.
 
 ### 3. Update `checklist.md`
+
+Before editing, run the following Bash command to get the real current time:
+
+```bash
+date "+%Y-%m-%d %H:%M"
+```
+
+Use the output as the new `Last Updated` value. **Never guess or hardcode a timestamp.**
 
 Read `checklist.md`. For each item:
 - If the work described has been completed in this session, mark it `[x]`.
