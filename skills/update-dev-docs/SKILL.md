@@ -1,19 +1,15 @@
 ---
-description: Update the local dev-docs for any tracked task — syncs checklist progress, bumps Last Updated timestamp, records new decisions or key file discoveries, and proposes status transitions with user permission. No TASKS.md or Jira integration.
+name: update-dev-docs
+description: Use this skill after completing a meaningful chunk of work on a tracked dev-docs task. Syncs checklist progress, records new decisions or key file discoveries, bumps the Last Updated timestamp, and proposes status transitions with user permission. Invoke when the user says "update the docs", "mark that done", "sync dev docs", or after finishing a phase of work.
 allowed-tools: Read(.claude/dev-docs/**), Write(.claude/dev-docs/**), Edit(.claude/dev-docs/**/checklist.md, .claude/dev-docs/**/decisions.md), Bash(mv)
-argument-hint: [<task-id>] — omit to infer from conversation context
-# examples:
-#   /update-dev-docs-general                          # infer active task from conversation context
-#   /update-dev-docs-general 2026-02-28-cache-refactor # explicit task slug
 ---
 
-# update-dev-docs-general — Sync Local Task Documentation
+# update-dev-docs — Sync Local Task Documentation
 
 Update checklist progress and record decisions for a dev-docs task.
 Invoke this after completing any meaningful chunk of work.
 
 This skill is a standalone local tracker — it has **no TASKS.md or Jira integration**.
-Use `/update-dev-docs` instead when the task is tracked in TASKS.md.
 
 ---
 
@@ -50,7 +46,7 @@ Search all three status folders in order: `active/`, `blocked/`, `completed/`.
 ```
 
 Note the current status from whichever folder the task is found in.
-If not found in any folder, stop and suggest running `/dev-docs-general` first.
+If not found in any folder, stop and suggest running the `dev-docs` skill first.
 
 ### 3. Update `checklist.md`
 
