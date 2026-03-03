@@ -36,7 +36,7 @@ CLAUDE.md             # This file
 ## Installing on a new machine
 
 ```shell
-/plugin marketplace add your-username/your-repo-name
+/plugin marketplace add kaihangcai/claude-skills
 /plugin install dev-workflow-skills@dev-workflow-skills
 ```
 

@@ -21,7 +21,7 @@ Claude Code v1.0.33 or later — run `claude --version` to check.
 Push this repo to GitHub (or any git host), then on each machine run:
 
 ```shell
-/plugin marketplace add your-username/your-repo-name
+/plugin marketplace add kaihangcai/claude-skills
 /plugin install dev-workflow-skills@dev-workflow-skills
 ```
 
