@@ -1,0 +1,16 @@
+{
+  "name": "dev-workflow-skills",
+  "owner": {
+    "name": "kaiha"
+  },
+  "metadata": {
+    "description": "Personal Claude Code skills for dev documentation workflows."
+  },
+  "plugins": [
+    {
+      "name": "dev-workflow-skills",
+      "source": "./",
+      "description": "Task documentation, checklist sync, and plan review skills for Claude Code."
+    }
+  ]
+}

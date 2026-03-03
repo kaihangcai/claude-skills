@@ -1,0 +1,8 @@
+{
+  "name": "dev-workflow-skills",
+  "description": "Personal dev-workflow skills: task documentation (dev-docs), checklist sync (update-dev-docs), and plan review (plan-reviewer).",
+  "version": "1.0.0",
+  "author": {
+    "name": "kaiha"
+  }
+}
